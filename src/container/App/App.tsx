@@ -4,6 +4,7 @@ import Header from "container/Header/Header"
 import Main from "../Main/Main"
 import Footer from "../Footer/Footer"
 import { StyledEngineProvider } from "@mui/material"
+import "style/style.scss"
 
 type Props = {}
 
