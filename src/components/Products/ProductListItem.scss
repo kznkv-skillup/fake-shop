@@ -22,4 +22,12 @@
             font-weight: bold;
         }
     }
+    .product-image {
+        img {
+            width: 150px;
+            height: auto;
+        }
+        
+        text-align: center;
+    }
 }
