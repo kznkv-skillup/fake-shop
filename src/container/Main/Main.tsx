@@ -1,6 +1,9 @@
 import { Container } from "@mui/material"
+import AboutPage from "pages/About/AboutPage"
 import CartPage from "pages/Cart/CartPage"
 import Home from "pages/Home/Home"
+import PaymentPage from "pages/Payment/PaymentPage"
+import ShippingPage from "pages/Shipping/ShippingPage"
 import { Routes, Route } from "react-router-dom"
 
 type Props = {
@@ -17,6 +20,9 @@ const Main = ({ addProductToCart }: Props) => {
                         element={<Home addProductToCart={addProductToCart} />}
                     />
                     <Route path="cart" element={<CartPage />} />
+                    <Route path="about" element={<AboutPage />} />
+                    <Route path="shipping" element={<ShippingPage />} />
+                    <Route path="payment" element={<PaymentPage />} />
                 </Routes>
             </Container>
         </main>
