@@ -2,14 +2,12 @@ import ProductsList from "components/Products/ProductsList"
 import Reviews from "components/Reviews/Reviews"
 import React from "react"
 
-type Props = {
-    addProductToCart: (id: number, count: number) => void
-}
+type Props = {}
 
-const Home = ({ addProductToCart }: Props) => {
+const Home = () => {
     return (
         <>
-            <ProductsList addProductToCart={addProductToCart} />
+            <ProductsList />
             <Reviews />
         </>
     )
