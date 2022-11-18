@@ -3,6 +3,10 @@ import { Product } from "components/Products/productsArray"
 import "./CartProductListItemExtended.scss"
 import DeleteIcon from "@mui/icons-material/Delete"
 import Quantity from "components/Quantity/Quantity"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import { useAppDispatch, useAppSelector } from "redux/hooks"
+import { removeLike, addLike } from "redux/likeReducer"
 
 type Props = {
     product: Product
@@ -17,6 +21,11 @@ const CartProductListItemExtended = ({
     removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
+    const isLiked = useAppSelector(
+        (state) => state.productsLikeState[product.id]
+    )
+    const dispatch = useAppDispatch()
+
     return (
         <Grid
             item
@@ -31,6 +40,16 @@ const CartProductListItemExtended = ({
                     <div className="product-image">
                         <img src={product.image} alt="" />
                     </div>
+                    <Button
+                        variant="outlined"
+                        onClick={() =>
+                            isLiked
+                                ? dispatch(removeLike(product.id))
+                                : dispatch(addLike(product.id))
+                        }
+                    >
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                     <div>{product.name}</div>
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
